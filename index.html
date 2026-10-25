@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SPMS | Smart Parking</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+<header><div class="logo">P</div><div><h1>Smart Parking</h1><p>Management System</p></div><span class="pill">ACADEMIC DEMO</span></header>
+<main>
+<section class="hero"><div><small>SMART PARKING MANAGEMENT SYSTEM</small><h2>Find a spot. Park with ease.</h2><p>Manage parking availability, reservations, fees and vehicle exits from one dashboard.</p></div><div class="heroStat"><b id="heroAvailable">8</b><span>slots available</span></div></section>
+<nav><button class="tab active" data-view="dashboard">Dashboard</button><button class="tab" data-view="reserve">Reservations & Payment</button><button class="tab" data-view="records">Records</button></nav>
+<section id="dashboard" class="view">
+<div class="heading"><div><h2>Parking overview</h2><p>Live status within this browser demo.</p></div><button class="light" id="reset">Reset demo data</button></div>
+<div class="stats"><article><span>Available</span><b id="available">8</b></article><article><span>Occupied</span><b id="occupied">0</b></article><article><span>Total slots</span><b id="total">8</b></article><article><span>Hourly rate</span><b>₹40</b></article></div>
+<div class="heading"><div><h2>Parking slots</h2><p>Search by slot ID or filter by availability.</p></div><div class="filters"><input id="search" placeholder="Search slot (e.g. A01)"><select id="filter"><option value="all">All slots</option><option value="available">Available</option><option value="occupied">Occupied</option></select></div></div>
+<div id="slots" class="slots"></div><p class="note">Demo only: data is stored in this browser. Payment is simulated; no real money is charged.</p>
+</section>
+<section id="reserve" class="view hidden"><div class="heading"><div><h2>Reserve a parking slot</h2><p>Create a reservation and simulate checkout.</p></div></div>
+<div class="columns"><form id="form" class="panel"><h3>Reservation details</h3><label>Customer name<input id="name" required maxlength="70" placeholder="Enter full name"></label><label>Vehicle registration<input id="vehicle" required maxlength="20" pattern="[A-Za-z0-9 -]{4,20}" placeholder="e.g. MH31AB1234"></label><label>Available slot<select id="slot" required></select></label><label>Parking duration (hours)<input id="hours" type="number" min="1" max="24" value="2" required></label><div class="fee"><span>Estimated fee</span><b id="fee">₹80</b></div><button class="primary" type="submit">Reserve & continue to payment</button><p class="small">One active reservation per vehicle in this demo.</p></form>
+<aside class="panel"><h3>How it works</h3><ol><li>Choose an available slot.</li><li>Enter customer and vehicle details.</li><li>Review the fee based on hourly rate.</li><li>Confirm simulated payment.</li><li>Record vehicle entry and exit under Records.</li></ol><p class="note">Test tip: try a duplicate vehicle or an occupied slot to verify validation.</p></aside></div>
+<div id="checkout" class="panel hidden"><h3>Confirm simulated payment</h3><p id="summary"></p><button id="fail" class="light">Simulate failure</button> <button id="pay" class="primary">Confirm payment</button></div></section>
+<section id="records" class="view hidden"><div class="heading"><div><h2>Reservations & vehicle exit</h2><p>Review reservations, record entry and release slots at exit.</p></div></div><div id="recordsList"></div><p class="note">Vehicle exit completes the reservation and releases its slot.</p></section>
+<div id="toast" class="toast hidden"></div></main><footer>SPMS · Academic project demo · Simulated payments only</footer><script src="app.js"></script></body></html>
